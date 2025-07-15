@@ -39,7 +39,6 @@ if borrar:
 
 # Guardar nuevo registro
 if guardar:
-
     # Cálculos
     numero_tilapias_final = numero_tilapias_inicial - tilapias_muertas
     mortalidad_porcentaje = (tilapias_muertas / numero_tilapias_inicial) * 100
@@ -76,6 +75,8 @@ if guardar:
     historial.to_excel("registro_tilapia.xlsx", index=False)
 
     st.success("✅ Registro guardado correctamente en Excel.")
+    st.write("Estado Temperatura Agua:", estado_temp_agua)
+    st.write("Estado Temperatura Ambiente:", estado_temp_ambiente)
 
 # Mostrar historial si existe
 if os.path.exists("registro_tilapia.xlsx"):
@@ -156,4 +157,3 @@ if os.path.exists("registro_tilapia.xlsx"):
         st.altair_chart(chart5, use_container_width=True)
 else:
     st.info("No hay registros almacenados.")
-
